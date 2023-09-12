@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import NoteList from './NoteList';
 import NoteForm from './NoteForm';
 import './App.css';
+import Clock from './Clock';
+
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -34,6 +36,8 @@ function App() {
         </div>
         <div className="content">
           <NoteForm onSubmit={editingNote ? updateNote : addNote} noteToEdit={editingNote} />
+          <Clock />
+          
         </div>
       </div>
     </div>
