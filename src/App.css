@@ -1,30 +1,49 @@
 /* src/styles.css */
+:root {
+  --background-color: #f4f4f4;
+  --container-bg-color: #fff;
+  --form-bg-color: #f7f7f7;
+  --border-color: #ddd;
+  --input-border-color: #ccc;
+  --box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  --note-bg-color: #fff;
+  --note-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  --button-delete-bg: #e74c3c;
+  --button-edit-bg: #3498db;
+  --button-color: #fff;
+  --padding: 20px;
+  --margin-bottom: 20px;
+  --border-radius: 5px;
+  --font-family: 'Arial', sans-serif;
+  --font-size: 16px;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
 }
 
 .app {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  padding: var(--padding);
+  background-color: var(--container-bg-color);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--margin-bottom);
 }
 
 .note-form {
-  background-color: #f7f7f7;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  background-color: var(--form-bg-color);
+  padding: var(--padding);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--margin-bottom);
 }
 
 .note-form input,
@@ -33,18 +52,24 @@ h1 {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border-color);
   border-radius: 3px;
-  font-size: 16px;
+  font-size: var(--font-size);
+  box-sizing: border-box;
+}
+
+.note-form input,
+.note-form textarea {
+  font-family: var(--font-family);
 }
 
 .note {
-  background-color: #fff;
+  background-color: var(--note-bg-color);
   padding: 15px;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--note-box-shadow);
 }
 
 .note h3 {
@@ -56,38 +81,41 @@ h1 {
 }
 
 .note button {
-  background-color: #e74c3c;
-  color: #fff;
+  background-color: var(--button-delete-bg);
+  color: var(--button-color);
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 3px;
+  font-size: var(--font-size);
 }
 
 .note button.edit {
-  background-color: #3498db;
+  background-color: var(--button-edit-bg);
   margin-right: 5px;
-}
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
 }
 
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .sidebar {
-  flex: 1;
+  flex: 1 1 300px;
   margin-right: 20px;
 }
 
 .content {
-  flex: 2;
+  flex: 2 1 600px;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    margin-right: 0;
+    margin-bottom: var(--margin-bottom);
+  }
 }
